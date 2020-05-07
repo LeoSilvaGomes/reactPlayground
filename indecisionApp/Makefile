@@ -1,4 +1,4 @@
-BABELUP := babel src/playground/es6-classes-1.js --out-file=public/scripts/app.js --presets=env,react 
+BABELUP := babel src/app.js --out-file=public/scripts/app.js --presets=env,react 
 
 
 update-app: .
