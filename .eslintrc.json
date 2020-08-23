@@ -4,22 +4,17 @@
     "browser": true,
     "es2020": true
   },
-  "extends": ["plugin:react/recommended", "airbnb"],
+  "extends": "plugin:react/recommended",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 11,
+    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "plugins": ["react"],
   "rules": {
-    "react/jsx-filename-extension": [
-      "error",
-      {
-        "extensions": [".js", ".jsx"]
-      }
-    ],
-    "import/prefer-deafult-export": "off"
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", "jsx"] }],
+    "import/prefer-default-export": "off"
   }
 }
