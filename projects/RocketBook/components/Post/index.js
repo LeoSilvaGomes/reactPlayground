@@ -7,20 +7,22 @@ import "./style.scss";
 const Post = (props) => (
   <Fragment>
     <div className="postContainer">
-      <PostHeader></PostHeader>
+      <PostHeader publishDate={props.children.publishDate}>
+        {props.children.name}
+      </PostHeader>
       <div className="comment">
-        <p>{props.children}</p>
+        <p>{props.children.comment}</p>
       </div>
     </div>
   </Fragment>
 );
 
 Post.defaultProps = {
-  children: "Ocorreu um problema! não é possivel visualizar a publicação",
+  children: {},
 };
 
 Post.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.object,
 };
 
 export default Post;
