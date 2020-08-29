@@ -13,6 +13,29 @@ export default class Main extends Component {
     repositories: [],
   };
 
+  async componentDidMount() {
+    this.setState({ loading: true });
+
+    for (var i = 0; i < localStorage.length; i++) {
+      try {
+        const { data: repository } = await api.get(
+          `/repos/${localStorage.getItem(localStorage.key(i))}`
+        );
+
+        repository.lastCommit = moment(repository.pushed_at).fromNow();
+
+        this.setState({
+          repositoryInput: "",
+          repositories: [...this.state.repositories, repository],
+          repositoryError: false,
+        });
+      } catch (err) {
+      } finally {
+        this.setState({ loading: false });
+      }
+    }
+  }
+
   handleAddRepository = async (e) => {
     e.preventDefault();
 
@@ -22,6 +45,12 @@ export default class Main extends Component {
       const { data: repository } = await api.get(
         `/repos/${this.state.repositoryInput}`
       );
+
+      try {
+        localStorage.setItem(repository.id, this.state.repositoryInput);
+      } catch (err) {
+        throw err;
+      }
 
       repository.lastCommit = moment(repository.pushed_at).fromNow();
 

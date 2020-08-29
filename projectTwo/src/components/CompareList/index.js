@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 
 import { Container, Repository } from "./styles.js";
 
+const handleRemove = (id) => {
+  localStorage.removeItem(id);
+};
+
 const CompareList = ({ repositories }) => (
   <Container>
     {repositories.map((repository) => (
@@ -31,6 +35,7 @@ const CompareList = ({ repositories }) => (
             <small>last commit</small>
           </li>
         </ul>
+        <button onClick={handleRemove(repositories.id)}>Remove</button>
       </Repository>
     ))}
   </Container>
