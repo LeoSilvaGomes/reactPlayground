@@ -1,17 +1,18 @@
-const INITIAL_STATE = [];
+const INITIAL_STATE = {
+  loading: false,
+  data: [],
+};
 
 export default function favorites(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case "ADD_FAVORITE":
-      return [
+    case "ADD_FAVORITE_REQUEST":
+      return { ...state, loading: true };
+    case "ADD_FAVORITE_SUCESS":
+      return {
         ...state,
-        {
-          id: Math.random(),
-          name: "facebook/react",
-          description: "A declarative",
-          url: "http://github.com/facebook/react",
-        },
-      ];
+        loading: false,
+        data: [...state, action.payload.data],
+      };
     default:
       return state;
   }
