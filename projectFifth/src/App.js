@@ -1,9 +1,17 @@
 import React from "react";
 
+import Sidebar from "./components/Sidebar";
+import Player from "./components/Player";
+
+import { Wrapper, Container } from "./styles/components";
+
 const App = () => (
-  <div>
-    <h1>Leo</h1>
-  </div>
+  <Wrapper>
+    <Container>
+      <Sidebar />
+    </Container>
+    <Player />
+  </Wrapper>
 );
 
 export default App;
