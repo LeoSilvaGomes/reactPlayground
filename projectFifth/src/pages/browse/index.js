@@ -7,7 +7,7 @@ const Browse = () => (
     <Title>Navegar</Title>
 
     <List>
-      <Playlist href="">
+      <Playlist to="/playlist/1">
         <img
           src="https://i.pinimg.com/originals/b4/75/00/b4750046d94fed05d00dd849aa5f0ab7.jpg"
           alt="Cover"
