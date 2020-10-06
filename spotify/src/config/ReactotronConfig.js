@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === "development") {
     .use(sagaPlugin())
     .connect();
 
-  reactotron.clear();
-
   console.tron = reactotron;
+
+  reactotron.clear();
 }

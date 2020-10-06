@@ -8,7 +8,7 @@ const middlewares = [];
 
 const sagaMonitor =
   process.env.NODE_ENV === "development"
-    ? console.tron.createSagaMiddleware()
+    ? console?.tron?.createSagaMiddleware()
     : null;
 const sagaMiddlware = createSagaMiddleware({ sagaMonitor });
 
